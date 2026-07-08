@@ -1,5 +1,7 @@
 package br.com.cesarfcg.productscrud.Service;
 
+import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
+import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
 import br.com.cesarfcg.productscrud.Entity.ProductEntity;
 import br.com.cesarfcg.productscrud.Repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,15 @@ public class ProductsService {
     public List<ProductEntity> list(){
         return productsRepository.findAll();
     }
-    public ProductEntity create(ProductEntity product){
-        return productsRepository.save(product);
+    public ProductResponseDTO create(ProductRequestDTO dto){
+        ProductEntity product = new ProductEntity();
+        product.setName(dto.name());
+        product.setDescription(dto.description());
+        product.setPrice(dto.price());
+        ProductEntity saved = productsRepository.save(product);
+        return new ProductResponseDTO(saved.getName(), saved.getDescription(), saved.getPrice() );
+
+
     }
     public ProductEntity update(ProductEntity product){
         return productsRepository.save(product);

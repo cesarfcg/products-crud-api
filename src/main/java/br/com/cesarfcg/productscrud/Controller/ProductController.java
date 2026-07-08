@@ -1,5 +1,7 @@
 package br.com.cesarfcg.productscrud.Controller;
 
+import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
+import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
 import br.com.cesarfcg.productscrud.Entity.ProductEntity;
 import br.com.cesarfcg.productscrud.Service.ProductsService;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +22,8 @@ public class ProductController {
         return productsService.list();
     }
     @PostMapping("/create")
-    public ProductEntity create(@RequestBody ProductEntity productEntity){
-        return productsService.create(productEntity);
+    public ProductResponseDTO create(@RequestBody ProductRequestDTO productRequestDTO){
+        return productsService.create(productRequestDTO);
     }
     @PutMapping("/update")
     public ProductEntity update(@RequestBody ProductEntity productEntity){
