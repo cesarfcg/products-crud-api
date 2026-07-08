@@ -16,13 +16,11 @@ public class ProductsService {
     public List<ProductEntity> list(){
         return productsRepository.findAll();
     }
-    public List<ProductEntity> create(ProductEntity product){
-        productsRepository.save(product);
-        return list();
+    public ProductEntity create(ProductEntity product){
+        return productsRepository.save(product);
     }
-    public List<ProductEntity> update(ProductEntity product){
-        productsRepository.save(product);
-        return list();
+    public ProductEntity update(ProductEntity product){
+        return productsRepository.save(product);
     }
     public List<ProductEntity> delete(Long id){
         productsRepository.deleteById(id);

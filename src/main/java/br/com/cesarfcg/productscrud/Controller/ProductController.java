@@ -20,11 +20,11 @@ public class ProductController {
         return productsService.list();
     }
     @PostMapping("/create")
-    public List<ProductEntity> create(@RequestBody ProductEntity productEntity){
+    public ProductEntity create(@RequestBody ProductEntity productEntity){
         return productsService.create(productEntity);
     }
     @PutMapping("/update")
-    public List<ProductEntity> update(@RequestBody ProductEntity productEntity){
+    public ProductEntity update(@RequestBody ProductEntity productEntity){
         return productsService.update(productEntity);
     }
     @DeleteMapping("/delete/{id}")
