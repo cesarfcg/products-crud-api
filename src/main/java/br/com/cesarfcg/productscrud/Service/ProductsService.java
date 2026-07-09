@@ -4,11 +4,10 @@ import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
 import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
 import br.com.cesarfcg.productscrud.Entity.ProductEntity;
 import br.com.cesarfcg.productscrud.Repository.ProductsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductsService {
@@ -16,8 +15,14 @@ public class ProductsService {
     public ProductsService(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
     }
-    public List<ProductEntity> list(){
-        return productsRepository.findAll();
+    public List<ProductResponseDTO> list(){
+        List<ProductEntity> products = productsRepository.findAll();
+        List<ProductResponseDTO> response = new ArrayList<>();
+        for (ProductEntity product : products){
+            response.add(new ProductResponseDTO(product.getName(), product.getDescription(), product.getPrice()));
+        }
+
+        return response;
     }
     public ProductResponseDTO create(ProductRequestDTO dto){
         ProductEntity product = new ProductEntity();
@@ -37,7 +42,7 @@ public class ProductsService {
         ProductEntity saved = productsRepository.save(productEntity);
         return new ProductResponseDTO(saved.getName(), saved.getDescription(), saved.getPrice());
     }
-    public List<ProductEntity> delete(Long id){
+    public List<ProductResponseDTO> delete(Long id){
         productsRepository.deleteById(id);
         return list();
     }

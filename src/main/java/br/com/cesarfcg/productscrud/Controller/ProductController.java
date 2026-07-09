@@ -2,7 +2,6 @@ package br.com.cesarfcg.productscrud.Controller;
 
 import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
 import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
-import br.com.cesarfcg.productscrud.Entity.ProductEntity;
 import br.com.cesarfcg.productscrud.Service.ProductsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,7 @@ public class ProductController {
     }
 
     @GetMapping("/list")
-    public List<ProductEntity> list(){
+    public List<ProductResponseDTO> list(){
         return productsService.list();
     }
     @PostMapping("/create")
@@ -30,7 +29,7 @@ public class ProductController {
         return productsService.update(id,dto);
     }
     @DeleteMapping("/delete/{id}")
-    public List<ProductEntity> delete(@PathVariable("id")Long id ){
+    public List<ProductResponseDTO> delete(@PathVariable("id")Long id ){
         return productsService.delete(id);
     }
 }
