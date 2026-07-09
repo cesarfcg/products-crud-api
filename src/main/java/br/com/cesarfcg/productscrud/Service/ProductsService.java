@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductsService {
@@ -28,8 +29,13 @@ public class ProductsService {
 
 
     }
-    public ProductEntity update(ProductEntity product){
-        return productsRepository.save(product);
+    public ProductResponseDTO update(Long id, ProductRequestDTO dto){
+        ProductEntity productEntity = productsRepository.findById(id).orElseThrow();
+        productEntity.setName(dto.name());
+        productEntity.setDescription(dto.description());
+        productEntity.setPrice(dto.price());
+        ProductEntity saved = productsRepository.save(productEntity);
+        return new ProductResponseDTO(saved.getName(), saved.getDescription(), saved.getPrice());
     }
     public List<ProductEntity> delete(Long id){
         productsRepository.deleteById(id);
