@@ -20,7 +20,7 @@ API REST simples para gerenciamento de produtos desenvolvida com Spring Boot. O 
 - Atualizar produtos
 - Remover produtos
 - Documentação da API com Swagger
-- Persistência de dados utilizando H2 Database
+- Persistência de dados
 
 ## Executando o Projeto
 
