@@ -3,6 +3,7 @@ package br.com.cesarfcg.productscrud.Controller;
 import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
 import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
 import br.com.cesarfcg.productscrud.Service.ProductsService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,11 +22,11 @@ public class ProductController {
         return productsService.list();
     }
     @PostMapping("/create")
-    public ProductResponseDTO create(@RequestBody ProductRequestDTO productRequestDTO){
+    public ProductResponseDTO create(@Valid @RequestBody ProductRequestDTO productRequestDTO){
         return productsService.create(productRequestDTO);
     }
     @PutMapping("/update/{id}")
-    public ProductResponseDTO update(@PathVariable("id") Long id ,@RequestBody ProductRequestDTO dto){
+    public ProductResponseDTO update(@Valid @PathVariable("id") Long id ,@RequestBody ProductRequestDTO dto){
         return productsService.update(id,dto);
     }
     @DeleteMapping("/delete/{id}")

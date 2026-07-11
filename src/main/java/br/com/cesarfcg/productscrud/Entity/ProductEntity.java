@@ -24,6 +24,7 @@ public class ProductEntity {
     private String name;
     @NotNull
     private String description;
+    @NotNull
     @PositiveOrZero
     private Double price;
 
