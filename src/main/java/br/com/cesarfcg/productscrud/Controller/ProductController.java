@@ -1,7 +1,7 @@
 package br.com.cesarfcg.productscrud.Controller;
 
-import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
-import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
+import br.com.cesarfcg.productscrud.Dto.Request.ProductRequestDTO;
+import br.com.cesarfcg.productscrud.Dto.Response.ProductResponseDTO;
 import br.com.cesarfcg.productscrud.Service.ProductsService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;

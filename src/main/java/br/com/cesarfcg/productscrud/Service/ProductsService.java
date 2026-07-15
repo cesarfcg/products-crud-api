@@ -1,7 +1,7 @@
 package br.com.cesarfcg.productscrud.Service;
 
-import br.com.cesarfcg.productscrud.Dto.ProductRequestDTO;
-import br.com.cesarfcg.productscrud.Dto.ProductResponseDTO;
+import br.com.cesarfcg.productscrud.Dto.Request.ProductRequestDTO;
+import br.com.cesarfcg.productscrud.Dto.Response.ProductResponseDTO;
 import br.com.cesarfcg.productscrud.Entity.ProductEntity;
 import br.com.cesarfcg.productscrud.Repository.ProductsRepository;
 import org.springframework.stereotype.Service;
