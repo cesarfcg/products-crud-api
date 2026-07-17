@@ -2,8 +2,11 @@ package br.com.cesarfcg.productscrud.Controller;
 
 import br.com.cesarfcg.productscrud.Dto.Request.ProductRequestDTO;
 import br.com.cesarfcg.productscrud.Dto.Response.ProductResponseDTO;
+import br.com.cesarfcg.productscrud.Dto.Response.RegisterResponseDTO;
+import br.com.cesarfcg.productscrud.Entity.UserEntity;
 import br.com.cesarfcg.productscrud.Service.ProductsService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,4 +36,5 @@ public class ProductController {
     public List<ProductResponseDTO> delete(@PathVariable("id")Long id ){
         return productsService.delete(id);
     }
+
 }
