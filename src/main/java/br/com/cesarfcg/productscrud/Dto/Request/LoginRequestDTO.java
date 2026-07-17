@@ -1,4 +1,6 @@
 package br.com.cesarfcg.productscrud.Dto.Request;
 
-public record LoginRequestDTO(String token) {
+import jakarta.validation.constraints.NotBlank;
+
+public record LoginRequestDTO(@NotBlank String token) {
 }
